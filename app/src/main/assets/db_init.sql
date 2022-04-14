@@ -1,0 +1,5 @@
+CREATE TABLE  "envelope" (
+	id	 					INTEGER PRIMARY KEY AUTOINCREMENT,
+	name 				TEXT NOT NULL,
+	percentage		INTEGER NOT NULL
+);

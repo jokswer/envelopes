@@ -13,7 +13,7 @@ import ru.akbirov.envelopes2.databinding.FragmentEnvelopeBinding
 import ru.akbirov.envelopes2.model.Envelope
 import java.lang.IllegalStateException
 
-typealias EnvelopeDialogListener = (requestKey: String, name: String, percentage: Int, id: String?) -> Unit
+typealias EnvelopeDialogListener = (requestKey: String, name: String, percentage: Int, id: Int?) -> Unit
 
 class EnvelopeDialogFragment : AppCompatDialogFragment() {
     private val title: String?
@@ -22,8 +22,8 @@ class EnvelopeDialogFragment : AppCompatDialogFragment() {
         get() = requireArguments().getString(ARG_NAME)
     private val percentage: String?
         get() = requireArguments().getString(ARG_PERCENTAGE)
-    private val id: String?
-        get() = requireArguments().getString(ARG_ID)
+    private val id: Int?
+        get() = requireArguments().getInt(ARG_ID)
     private val requestKey: String
         get() = requireArguments().getString(ARG_REQUEST_KEY)!!
 
@@ -104,7 +104,7 @@ class EnvelopeDialogFragment : AppCompatDialogFragment() {
             requestKey: String,
             name: String?,
             percentage: String?,
-            id: String?,
+            id: Int?,
             title: String?
         ) {
             val dialogFragment = EnvelopeDialogFragment()
@@ -147,7 +147,7 @@ class EnvelopeDialogFragment : AppCompatDialogFragment() {
                         key, result.getString(KEY_NAME_RESPONSE)!!, result.getInt(
                             KEY_PERCENTAGE_RESPONSE
                         ),
-                        result.getString(KEY_ID_RESPONSE)
+                        result.getInt(KEY_ID_RESPONSE)
                     )
                 })
 
